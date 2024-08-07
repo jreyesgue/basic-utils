@@ -2,6 +2,7 @@ package com.deloitte.BasicUtils;
 
 import com.deloitte.BasicUtils.util.Calculator;
 import com.deloitte.BasicUtils.util.Encoder;
+import com.deloitte.BasicUtils.util.StudentCalculator;
 
 import java.util.Scanner;
 
@@ -35,6 +36,7 @@ public class App {
                     Encoder.operate(option, value);
                     break;
                 case 3:
+                    StudentCalculator.createStudent(scanner);
                     break;
                 case 4:
                     System.out.println("Goodbye :)");
