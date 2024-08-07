@@ -1,5 +1,8 @@
 package com.deloitte.BasicUtils;
 
+import com.deloitte.BasicUtils.util.Calculator;
+import com.deloitte.BasicUtils.util.Encoder;
+
 import java.util.Scanner;
 
 public class App {
@@ -25,15 +28,20 @@ public class App {
                     break;
                 case 2:
                     displayEncoderMenu();
+
+                    option = getOption();
+                    String value = getEncoderValue(option == 1 ? "encode" : "decode");
+
+                    Encoder.operate(option, value);
                     break;
                 case 3:
                     break;
                 case 4:
-                    System.out.println("\nGoodbye :)");
+                    System.out.println("Goodbye :)");
                     runAgain = false;
                     break;
                 default:
-                    System.out.println("\nError: Invalid option.\n");
+                    System.out.println("Error: Invalid option.\n");
             }
         } while (runAgain);
     }
@@ -47,7 +55,7 @@ public class App {
     }
 
     private static void displayCalculatorMenu() {
-        System.out.println("\nPlease choose an option:");
+        System.out.println("Please choose an option:");
         System.out.println("1.- Sum (a + b)");
         System.out.println("2.- Subtract (a - b)");
         System.out.println("3.- Multiply (a * b)");
@@ -55,19 +63,28 @@ public class App {
     }
 
     private static void displayEncoderMenu() {
-        System.out.println("\nPlease choose an option:");
+        System.out.println("Please choose an option:");
         System.out.println("1.- Encode a String to Base 64.");
         System.out.println("2.- Decode a String from Base 64.");
     }
 
     private static int getOption() {
         System.out.print("Option: ");
-        return scanner.nextInt();
+        int option = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println();
+
+        return option;
     }
 
     private static double getCalculatorValue(char value) {
         System.out.printf("Please enter the value for %s: ", value);
         return scanner.nextDouble();
+    }
+
+    private static String getEncoderValue(String action) {
+        System.out.printf("Please enter the string to %s: ", action);
+        return scanner.nextLine();
     }
 
 }

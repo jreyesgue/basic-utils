@@ -1,4 +1,4 @@
-package com.deloitte.BasicUtils;
+package com.deloitte.BasicUtils.util;
 
 import com.deloitte.BasicUtils.entity.MathOperation;
 
